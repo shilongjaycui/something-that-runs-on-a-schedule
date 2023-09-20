@@ -29,4 +29,4 @@ disable=
     # R0913: too-many-arguments -- Makes working with AWS difficult
     too-many-arguments,
 
-    too-many-locals,
+    too-many-locals
