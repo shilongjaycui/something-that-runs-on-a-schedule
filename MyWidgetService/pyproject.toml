@@ -1,0 +1,93 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [ "setuptools>=46.1.0", "wheel", "build", "docutils" ]
+
+[project]
+name = "my-widget-service"
+classifiers = [
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9"
+]
+dependencies = [
+  "aws-cdk-lib>=2.40.0",
+  "constructs>=10.0.0,<11.0.0",
+  "aws-cdk.aws-apigatewayv2-alpha",
+  "aws-cdk.aws-apigatewayv2-integrations-alpha",
+  "aws-cdk.aws_apigatewayv2_authorizers_alpha",
+  "aws-cdk.aws-kinesisfirehose-alpha",
+  "aws-cdk.aws-kinesisfirehose-destinations-alpha",
+  "aws-cdk.aws-glue-alpha"
+]
+description = "a simple widget dispensing service that includes an AWS Lambda function, an Amazon API Gateway API to call the Lambda function, and an Amazon S3 bucket that holds the widgets"
+readme = "README.md"
+requires-python = ">=3.7"
+version = "0.0.0"
+authors = [ ]
+
+  [project.license]
+  text = "MIT"
+
+  [project.optional-dependencies]
+  test = [
+  "boto3",
+  "pydantic>=1,<2",
+  "pytest",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pytest-runner",
+  "pytest-xdist",
+  "requests"
+]
+  cli = [ "fire" ]
+  all = [
+  "boto3",
+  "fire",
+  "pydantic>=1,<2",
+  "pytest",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pytest-runner",
+  "pytest-xdist",
+  "requests"
+]
+  dev = [
+  "boto3",
+  "fire",
+  "pydantic>=1,<2",
+  "pytest",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pytest-runner",
+  "pytest-xdist",
+  "requests"
+]
+
+[tool.autoflake]
+ignore_init_module_imports = true
+remove_all_unused_imports = false
+remove_unused_variable = [ "all" ]
+
+[tool.black]
+line-length = 119
+
+[tool.flake8]
+docstring-convention = "all"
+ignore = [ "D107", "D212", "E501", "W503", "W605", "D203", "D202" ]
+radon-max-cc = 10
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint."messages control"]
+disable = [
+  "line-too-long",
+  "trailing-whitespace",
+  "missing-function-docstring",
+  "consider-using-f-string",
+  "import-error",
+  "too-few-public-methods",
+  "redefined-outer-name"
+]
