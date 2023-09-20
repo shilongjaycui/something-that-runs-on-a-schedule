@@ -1,0 +1,32 @@
+# to disable certain pylint warnings, use the following format:
+# pylint: disable=long-form-warning-code-1,long-form-warning-code-2,...
+# Use the long form like "line-too-long" as opposed to the short form of the same error "C0301"
+
+[MESSAGES CONTROL]
+
+disable=
+    # C0103: Invalid name -- that is taken care of in black
+    invalid-name,
+
+    # C0301: Lines too long -- that is taken care of in black
+    line-too-long,
+
+    too-few-public-methods,
+
+    trailing-whitespace,
+
+    # C0411: Import order -- because it conflicts with isort
+    wrong-import-order,
+
+    # E0401: Import error -- it doesn't work correctly when using pipx for lint.
+    import-error,
+
+    # C0412: Ungrouped-imports -- seems to conflict with isort
+    ungrouped-imports,
+
+    missing-docstring,
+
+    # R0913: too-many-arguments -- Makes working with AWS difficult
+    too-many-arguments,
+
+    too-many-locals,
