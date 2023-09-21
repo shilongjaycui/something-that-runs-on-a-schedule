@@ -1,5 +1,5 @@
 """CDK stack for my_widget_service."""
-from aws_cdk import Stack  # Duration,; aws_sqs as sqs,
+from aws_cdk import Stack, aws_lambda as _lambda
 from constructs import Construct
 from . import widget_service
 

@@ -13,12 +13,10 @@ class WidgetService(Construct):
         bucket = s3.Bucket(self, "WidgetStore")
 
         handler = lambda_.Function(
-            self,
-            "WidgetHandler",
-            runtime=lambda_.Runtime.NODEJS_18_X,
-            code=lambda_.Code.from_asset("resources"),
-            handler="widgets.main",
-            environment=dict(BUCKET=bucket.bucket_name),
+            self, 'HelloHandler',
+            runtime=lambda_.Runtime.PYTHON_3_7,
+            code=lambda_.Code.from_asset('lambda'),
+            handler='hello.handler',
         )
 
         bucket.grant_read_write(handler)
