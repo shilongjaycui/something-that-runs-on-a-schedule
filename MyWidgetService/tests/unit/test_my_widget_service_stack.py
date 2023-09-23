@@ -2,7 +2,7 @@
 import aws_cdk as core
 from aws_cdk import assertions
 
-from my_widget_service.my_widget_service_stack import MyWidgetServiceStack
+from my_widget_service.my_widget_service_stack import MyLambdaCronStack
 
 
 # example tests. To run these tests, uncomment this file along with the example
@@ -10,7 +10,7 @@ from my_widget_service.my_widget_service_stack import MyWidgetServiceStack
 def test_sqs_queue_created():
     """Test to see if an SQS queue is created."""
     app = core.App()
-    stack = MyWidgetServiceStack(app, "my-widget-service")
+    stack = MyLambdaCronStack(app, "my-widget-service")
     assertions.Template.from_stack(stack)
 
 
