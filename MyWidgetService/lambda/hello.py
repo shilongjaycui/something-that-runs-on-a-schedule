@@ -1,11 +1,13 @@
+"""Lambda function."""
 import json
 
+
+# pylint: disable-next=unused-argument
 def handler(event, context):
-    print('request: {}'.format(json.dumps(event)))
+    """Lambda function."""
+    print(f"request: {json.dumps(event)}")
     return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'text/plain'
-        },
-        'body': 'Hello, CDK! You have hit {}\n'.format(event['path'])
+        "statusCode": 200,
+        "headers": {"Content-Type": "text/plain"},
+        "body": f"Hello, CDK! You have hit {event['path']}\n",
     }
